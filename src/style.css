@@ -1,3 +1,5 @@
+/*RESET CSS*/
+
 html,
 body,
 div,
@@ -130,4 +132,42 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+/*END OF RESET CSS*/
+
+/*FONTS */
+
+@font-face {
+  font-family: "Onest";
+  font-weight: 400;
+  font-style: normal;
+  src: url("/fonts/Onest/Onest-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Onest";
+  font-weight: 500;
+  font-style: normal;
+  src: url("/fonts/Onest/Onest-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Onest";
+  font-weight: 700;
+  font-style: normal;
+  src: url("/fonts/Onest/Onest-SemiBold.ttf") format("truetype");
+}
+
+/*END FONTS*/
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: #f9f9f6;
+  cursor: url("./assets/mouse-pointer.png"), auto;
+  font-family: "Onest", sans-serif;
 }
