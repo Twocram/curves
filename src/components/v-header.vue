@@ -4,7 +4,7 @@ import profile from "@assets/profile.svg";
 </script>
 
 <template>
-  <div class="header-container">
+  <section class="header-container">
     <div class="header-logo">
       <img :src="logo" alt="logo" />
     </div>
@@ -26,7 +26,7 @@ import profile from "@assets/profile.svg";
         <img :src="profile" alt="profile" />
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <style scoped>
