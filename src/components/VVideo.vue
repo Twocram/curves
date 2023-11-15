@@ -6,7 +6,9 @@ const props = defineProps<TVideoProps>();
 
 <template>
   <div class="video-container">
-    <video class="video" :src="props.src"></video>
+    <video v-if="props.src" controls class="video">
+      <source :src="props.src" type="video/mp4" />
+    </video>
   </div>
 </template>
 
@@ -14,6 +16,8 @@ const props = defineProps<TVideoProps>();
 .video-container {
   max-width: 430px;
   width: 100%;
+  position: sticky;
+  top: 80px;
   background: #ffffff;
   border: 1px solid #c7c7c7;
   border-radius: 12px;
@@ -23,5 +27,9 @@ const props = defineProps<TVideoProps>();
 .video {
   width: 100%;
   border-radius: 10px;
+}
+
+.video:hover {
+  cursor: auto;
 }
 </style>
