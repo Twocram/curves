@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import VFooter from "@components/v-footer.vue";
-import VHeader from "@components/v-header.vue";
+import VFooter from "@components/VFooter.vue";
+import VHeader from "@components/VHeader.vue";
 </script>
 
 <template>

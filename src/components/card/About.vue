@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { TCardAboutProps } from "@/types";
-import VButton from "@components/ui/v-button.vue";
+import VButton from "@components/ui/VButton.vue";
 
 // const props = defineProps<TCardAboutProps>();
 </script>
