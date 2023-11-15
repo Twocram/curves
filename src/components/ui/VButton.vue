@@ -30,6 +30,7 @@ button {
 .secondary:hover {
   background: #191b08;
   transition: 0.3s ease-in-out;
+  color: #ffffff;
 }
 
 .secondary:hover path {
@@ -47,12 +48,14 @@ button {
   padding: 10px 30px;
   font-size: 16px;
   line-height: 19.2px;
+  font-weight: 500;
 }
 
 .secondary.size-s {
   padding: 8px 24px;
   font-size: 14px;
   line-height: 16.8px;
+  font-weight: 500;
 }
 
 .secondary.disabled {
