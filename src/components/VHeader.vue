@@ -40,6 +40,7 @@ import profile from "@assets/profile.svg";
   border-bottom: 1px solid #c7c7c7;
   display: flex;
   justify-content: space-between;
+  z-index: 2;
 }
 
 .header-logo {
