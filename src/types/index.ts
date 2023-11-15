@@ -20,3 +20,7 @@ export type TCardInfoProps = {
 export type TCardAboutProps = {
   desc: string;
 };
+
+export type TVideoProps = {
+  src: string;
+};

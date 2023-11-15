@@ -1,10 +1,18 @@
 <script setup lang="ts">
+// Vue
 import { onMounted, ref } from "vue";
+
+// Components
 import VLayout from "@components/VLayout.vue";
 import VLinkButton from "@components/ui/VLinkButton.vue";
 import VCardInfo from "@components/card/Info.vue";
 import VCardAbout from "@components/card/About.vue";
+import VVideo from "@components/VVideo.vue";
+
+// Types
 import { TCardInfoProps } from "@/types";
+
+// Utils
 import {
   dateConverter,
   sizeConverter,
@@ -12,10 +20,13 @@ import {
 } from "@/utils/converter";
 
 const apiUrl: string = import.meta.env.VITE_SHOPOT_API_URL;
+const shortApiUrl: string = import.meta.env.VITE_SHOPOT_API_URL_SHORT;
 
 const cardInfoData = ref<TCardInfoProps | null>(null);
 
 const cardAboutData = ref<string | null>(null);
+
+const videoData = ref<string | null>(null);
 
 const getData = async () => {
   try {
@@ -34,6 +45,8 @@ const getData = async () => {
     };
 
     cardAboutData.value = data?.summary;
+
+    videoData.value = data?.fileSrc;
   } catch (e) {
     console.log(e);
   }
@@ -63,7 +76,9 @@ onMounted(() => {
           <v-card-about v-if="cardAboutData" :desc="cardAboutData" />
         </div>
 
-        <div class="content-right"></div>
+        <div class="content-right">
+          <v-video v-if="videoData" :src="`${shortApiUrl}${videoData}`" />
+        </div>
       </div>
     </section>
   </v-layout>
@@ -81,5 +96,11 @@ onMounted(() => {
 
 .content {
   position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.content-left {
+  margin-right: 17px;
 }
 </style>
