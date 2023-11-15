@@ -4,9 +4,16 @@ import copyIcon from "@assets/copy.svg";
 import VButton from "@components/ui/VButton.vue";
 import { TShortTextProps } from "@/types";
 import ShortTextCard from "@components/card/ShortText.vue";
+import { ref } from "vue";
 
 type TProps = {
   cards: TShortTextProps[];
+};
+
+const isHidden = ref<boolean>(true);
+
+const toggleHidden = () => {
+  isHidden.value = !isHidden.value;
 };
 
 const props = defineProps<TProps>();
@@ -27,13 +34,30 @@ const props = defineProps<TProps>();
       </div>
     </div>
 
-    <short-text-card
-      :duration="item.duration"
-      :start="item.start"
-      :text="item.text"
-      v-for="item in props.cards"
-      :key="item.start"
-    />
+    <div
+      class="card-content"
+      :class="[{ hidden: props.cards.length > 2 && isHidden }]"
+    >
+      <short-text-card
+        :duration="item.duration"
+        :start="item.start"
+        :text="item.text"
+        v-for="item in props.cards"
+        :key="item.start"
+      />
+    </div>
+
+    <v-button
+      @click="toggleHidden"
+      class="hide-btn"
+      :size="'size-m'"
+      :is-disabled="false"
+      :type="'secondary'"
+    >
+      <template v-if="isHidden"> Развернуть </template>
+
+      <template v-else> Свернуть </template>
+    </v-button>
   </div>
 </template>
 
@@ -63,5 +87,21 @@ const props = defineProps<TProps>();
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.hidden {
+  height: 260px;
+  overflow: auto;
+}
+
+.hide-btn {
+  width: fit-content;
+  margin-top: 16px;
 }
 </style>
