@@ -15,6 +15,8 @@ const apiUrl: string = import.meta.env.VITE_SHOPOT_API_URL;
 
 const cardInfoData = ref<TCardInfoProps | null>(null);
 
+const cardAboutData = ref<string | null>(null);
+
 const getData = async () => {
   try {
     const response = await fetch(apiUrl, {
@@ -30,6 +32,8 @@ const getData = async () => {
       size: sizeConverter(data?.fileSize),
       type: data?.type,
     };
+
+    cardAboutData.value = data?.summary;
   } catch (e) {
     console.log(e);
   }
@@ -56,7 +60,7 @@ onMounted(() => {
             :duration="cardInfoData?.duration"
           />
 
-          <v-card-about />
+          <v-card-about v-if="cardAboutData" :desc="cardAboutData" />
         </div>
 
         <div class="content-right"></div>
