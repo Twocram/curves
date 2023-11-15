@@ -165,6 +165,13 @@ table {
   src: url("/fonts/Onest/Onest-SemiBold.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "CourierPrime";
+  font-weight: 400;
+  font-style: normal;
+  src: url("/fonts/CourierPrime/CourierPrime-Regular.ttf") format("truetype");
+}
+
 /*END FONTS*/
 
 html,
