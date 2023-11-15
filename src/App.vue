@@ -1,11 +1,19 @@
 <script setup lang="ts">
-import { onMounted } from "vue";
+import { onMounted, ref } from "vue";
 import VLayout from "@components/VLayout.vue";
 import VLinkButton from "@components/ui/VLinkButton.vue";
 import VCardInfo from "@components/card/Info.vue";
 import VCardAbout from "@components/card/About.vue";
+import { TCardInfoProps } from "@/types";
+import {
+  dateConverter,
+  sizeConverter,
+  durationConverter,
+} from "@/utils/converter";
 
 const apiUrl: string = import.meta.env.VITE_SHOPOT_API_URL;
+
+const cardInfoData = ref<TCardInfoProps | null>(null);
 
 const getData = async () => {
   try {
@@ -15,7 +23,13 @@ const getData = async () => {
 
     const data = await response.json();
 
-    console.log(data);
+    cardInfoData.value = {
+      date: dateConverter(data?.uploadAt),
+      caption: data?.fileName,
+      duration: durationConverter(data?.duration),
+      size: sizeConverter(data?.fileSize),
+      type: data?.type,
+    };
   } catch (e) {
     console.log(e);
   }
@@ -33,14 +47,19 @@ onMounted(() => {
 
       <div class="content">
         <div class="content-left">
-          <v-card-info />
+          <v-card-info
+            v-if="cardInfoData"
+            :type="cardInfoData?.type"
+            :size="cardInfoData?.size"
+            :caption="cardInfoData?.caption"
+            :date="cardInfoData?.date"
+            :duration="cardInfoData?.duration"
+          />
 
           <v-card-about />
         </div>
 
-        <div class="content-right">
-
-        </div>
+        <div class="content-right"></div>
       </div>
     </section>
   </v-layout>
