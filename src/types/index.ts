@@ -24,3 +24,9 @@ export type TCardAboutProps = {
 export type TVideoProps = {
   src: string;
 };
+
+export type TShortTextProps = {
+  duration: number;
+  start: number;
+  text: string;
+};
