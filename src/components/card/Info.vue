@@ -1,18 +1,18 @@
 <script setup lang="ts">
 import { TCardInfoProps } from "@/types";
 
-// const props = defineProps<TCardInfoProps>();
+const props = defineProps<TCardInfoProps>();
 </script>
 
 <template>
   <div class="info-card">
-    <div class="info-card__caption">Игра престолов (7 сезон).mp4</div>
+    <div class="info-card__caption">{{ props.caption }}</div>
 
     <div class="info-card__list">
-      <div class="info-card__item">5.05.2023</div>
-      <div class="info-card__item">16.7 МБ</div>
-      <div class="info-card__item">15:00</div>
-      <div class="info-card__item">video</div>
+      <div class="info-card__item">{{ props.date }}</div>
+      <div class="info-card__item">{{ props.size }} МБ</div>
+      <div class="info-card__item">{{ props.duration }}</div>
+      <div class="info-card__item">{{ props.type }}</div>
     </div>
   </div>
 </template>
