@@ -8,9 +8,10 @@ import VLinkButton from "@components/ui/VLinkButton.vue";
 import VCardInfo from "@components/card/Info.vue";
 import VCardAbout from "@components/card/About.vue";
 import VVideo from "@components/VVideo.vue";
+import VShortText from "@components/VShortText.vue";
 
 // Types
-import { TCardInfoProps } from "@/types";
+import { TCardInfoProps, TShortTextProps } from "@/types";
 
 // Utils
 import {
@@ -27,6 +28,8 @@ const cardInfoData = ref<TCardInfoProps | null>(null);
 const cardAboutData = ref<string | null>(null);
 
 const videoData = ref<string | null>(null);
+
+const shortTextData = ref<TShortTextProps[] | []>([]);
 
 const getData = async () => {
   try {
@@ -47,6 +50,8 @@ const getData = async () => {
     cardAboutData.value = data?.summary;
 
     videoData.value = data?.fileSrc;
+
+    shortTextData.value = data?.summaryScript;
   } catch (e) {
     console.log(e);
   }
@@ -74,6 +79,8 @@ onMounted(() => {
           />
 
           <v-card-about v-if="cardAboutData" :desc="cardAboutData" />
+
+          <v-short-text v-if="shortTextData.length" :cards="shortTextData" />
         </div>
 
         <div class="content-right">
@@ -102,5 +109,10 @@ onMounted(() => {
 
 .content-left {
   margin-right: 17px;
+  max-width: 785px;
+}
+
+.content-right {
+  position: relative;
 }
 </style>
