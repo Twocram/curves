@@ -6,7 +6,7 @@ const props = defineProps<TVideoProps>();
 
 <template>
   <div class="video-container">
-    <video v-if="props.src" controls class="video">
+    <video id="code-video" v-if="props.src" controls class="video">
       <source :src="props.src" type="video/mp4" />
     </video>
   </div>
