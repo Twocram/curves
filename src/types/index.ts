@@ -30,3 +30,7 @@ export type TShortTextProps = {
   start: number;
   text: string;
 };
+
+export type TLongTextProps = TShortTextProps & {
+  speaker?: number;
+};
