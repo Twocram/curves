@@ -13,6 +13,9 @@ import VHeader from "@components/VHeader.vue";
 
 <style scoped>
 .layout {
-  padding: 80px 0 236px 0;
+  padding: 80px 0 0 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 </style>

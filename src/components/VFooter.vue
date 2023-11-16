@@ -33,9 +33,6 @@ import smile from "@assets/smile.svg";
 
 <style scoped>
 .footer-container {
-  position: fixed;
-  bottom: 0;
-  left: 0;
   height: 160px;
   width: 100%;
   background: #ebe6d8;
