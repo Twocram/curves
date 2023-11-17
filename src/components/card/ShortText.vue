@@ -45,7 +45,7 @@ onUnmounted(() => {
   <div class="card-item">
     <div
       class="card-item__speaker"
-      v-if="props.speaker && props.type === 'long'"
+      v-if="typeof props.speaker === 'number' && props.type === 'long'"
     >
       Спикер {{ props.speaker }}
     </div>

@@ -2,12 +2,13 @@
 import downloadIcon from "@assets/download.svg";
 import copyIcon from "@assets/copy.svg";
 import VButton from "@components/ui/VButton.vue";
-import { TShortTextProps } from "@/types";
+import { TLongTextProps } from "@/types";
 import ShortTextCard from "@components/card/ShortText.vue";
 import { ref } from "vue";
 
 type TProps = {
-  cards: TShortTextProps[];
+  type: string; //short or long
+  cards: TLongTextProps[];
 };
 
 const isHidden = ref<boolean>(true);
@@ -22,7 +23,13 @@ const props = defineProps<TProps>();
 <template>
   <div class="card-container">
     <div class="card-header">
-      <div class="card-header__caption">Краткое содержание текста</div>
+      <div class="card-header__caption">
+        <template v-if="props.type === 'short'">
+          Краткое содержание текста
+        </template>
+
+        <template v-else> Полная расшифровка текста </template>
+      </div>
       <div class="card-header__icons">
         <v-button :size="'size-l'" :is-disabled="false" :type="'icon'">
           <img :src="downloadIcon" alt="download-icon" />
@@ -39,11 +46,19 @@ const props = defineProps<TProps>();
       :class="[{ hidden: props.cards.length > 2 && isHidden }]"
     >
       <short-text-card
+        v-for="(item, index) in props.cards"
+        :type="props.type"
         :duration="item.duration"
         :start="item.start"
         :text="item.text"
-        v-for="item in props.cards"
         :key="item.start"
+        :speaker="
+          index === 0 ||
+          props.cards[index - 1].speaker !== item.speaker ||
+          item.speaker === 0
+            ? item.speaker
+            : null!
+        "
       />
     </div>
 
@@ -67,6 +82,11 @@ const props = defineProps<TProps>();
   padding: 20px 24px;
   border: 1px solid #c7c7c7;
   border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+.card-container:last-child {
+  margin-bottom: 0;
 }
 
 .card-header {

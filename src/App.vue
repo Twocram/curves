@@ -11,7 +11,7 @@ import VVideo from "@components/VVideo.vue";
 import VShortText from "@components/VShortText.vue";
 
 // Types
-import { TCardInfoProps, TShortTextProps } from "@/types";
+import { TCardInfoProps, TShortTextProps, TLongTextProps } from "@/types";
 
 // Utils
 import {
@@ -30,6 +30,8 @@ const cardAboutData = ref<string | null>(null);
 const videoData = ref<string | null>(null);
 
 const shortTextData = ref<TShortTextProps[] | []>([]);
+
+const longTextData = ref<TLongTextProps[] | []>([]);
 
 const getData = async () => {
   try {
@@ -52,6 +54,8 @@ const getData = async () => {
     videoData.value = data?.fileSrc;
 
     shortTextData.value = data?.summaryScript;
+
+    longTextData.value = data?.script;
   } catch (e) {
     console.log(e);
   }
@@ -80,7 +84,17 @@ onMounted(() => {
 
           <v-card-about v-if="cardAboutData" :desc="cardAboutData" />
 
-          <v-short-text v-if="shortTextData.length" :cards="shortTextData" />
+          <v-short-text
+            v-if="shortTextData.length"
+            :type="'short'"
+            :cards="shortTextData"
+          />
+
+          <v-short-text
+            v-if="longTextData.length"
+            :type="'long'"
+            :cards="longTextData"
+          />
         </div>
 
         <div class="content-right">
@@ -105,6 +119,7 @@ onMounted(() => {
   position: relative;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 76px;
 }
 
 .content-left {
