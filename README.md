@@ -1,4 +1,4 @@
-# Настройка проекта :arrow_heading_down:
+# Настройка проекта (Vue 3 Composition API + TypeScript) :arrow_heading_down:
 
 ## Клонирование репозитория
 
