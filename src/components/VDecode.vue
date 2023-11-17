@@ -2,14 +2,9 @@
 import downloadIcon from "@assets/download.svg";
 import copyIcon from "@assets/copy.svg";
 import VButton from "@components/ui/VButton.vue";
-import { TLongTextProps } from "@/types";
+import { TDecodeProps } from "@/types";
 import VDecodeTextCard from "@components/card/VDecodeText.vue";
 import { ref } from "vue";
-
-type TProps = {
-  type: string; //short or long
-  cards: TLongTextProps[];
-};
 
 const isHidden = ref<boolean>(true);
 
@@ -17,7 +12,7 @@ const toggleHidden = () => {
   isHidden.value = !isHidden.value;
 };
 
-const props = defineProps<TProps>();
+const props = defineProps<TDecodeProps>();
 </script>
 
 <template>

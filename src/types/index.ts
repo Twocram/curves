@@ -25,12 +25,18 @@ export type TVideoProps = {
   src: string;
 };
 
-export type TShortTextProps = {
+export type TTextProps = {
   duration: number;
   start: number;
   text: string;
+  speaker?: number;
 };
 
-export type TLongTextProps = TShortTextProps & {
-  speaker?: number;
+export type TDecodeProps = {
+  type: string;
+  cards: TTextProps[];
+};
+
+export type TDecodeTextCardProps = TTextProps & {
+  type: string;
 };

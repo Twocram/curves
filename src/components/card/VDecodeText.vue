@@ -1,13 +1,9 @@
 <script setup lang="ts">
-import { TLongTextProps } from "@/types";
+import { TDecodeTextCardProps } from "@/types";
 import { durationConverter } from "@/utils/converter";
 import { onMounted, onUnmounted, ref } from "vue";
 
-type TProps = {
-  type: string;
-} & TLongTextProps;
-
-const props = defineProps<TProps>();
+const props = defineProps<TDecodeTextCardProps>();
 const video = ref<HTMLVideoElement | null>(null);
 
 const isActive = ref(false);

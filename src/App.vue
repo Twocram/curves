@@ -12,7 +12,7 @@ import VDecode from "@components/VDecode.vue";
 import VLoader from "@components/VLoader.vue";
 
 // Types
-import { TCardInfoProps, TShortTextProps, TLongTextProps } from "@/types";
+import { TCardInfoProps, TTextProps } from "@/types";
 
 // Utils
 import {
@@ -32,9 +32,9 @@ const cardAboutData = ref<string | null>(null);
 
 const videoData = ref<string | null>(null);
 
-const shortTextData = ref<TShortTextProps[] | []>([]);
+const shortTextData = ref<TTextProps[] | []>([]);
 
-const longTextData = ref<TLongTextProps[] | []>([]);
+const longTextData = ref<TTextProps[] | []>([]);
 
 const getData = async () => {
   isLoading.value = true;
