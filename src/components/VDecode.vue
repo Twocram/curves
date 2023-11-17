@@ -3,7 +3,7 @@ import downloadIcon from "@assets/download.svg";
 import copyIcon from "@assets/copy.svg";
 import VButton from "@components/ui/VButton.vue";
 import { TLongTextProps } from "@/types";
-import ShortTextCard from "@components/card/ShortText.vue";
+import VDecodeTextCard from "@components/card/VDecodeText.vue";
 import { ref } from "vue";
 
 type TProps = {
@@ -45,7 +45,7 @@ const props = defineProps<TProps>();
       class="card-content"
       :class="[{ hidden: props.cards.length > 2 && isHidden }]"
     >
-      <short-text-card
+      <v-decode-text-card
         v-for="(item, index) in props.cards"
         :type="props.type"
         :duration="item.duration"
