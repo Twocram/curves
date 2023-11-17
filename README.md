@@ -1,18 +1,36 @@
-# Vue 3 + TypeScript + Vite
+# Настройка проекта :arrow_heading_down:
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+https://www.loom.com/share/2145c145d7dd49d587eafb9b22ae3a34
 
-## Recommended IDE Setup
+## Клонирование репозитория
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+Чтобы клонировать репозиторий к себе, необходимо ввести в терминале команду:
+```
+git clone git@github.com:Twocram/curves.git
+```
 
-## Type Support For `.vue` Imports in TS
+## Настройка переменных окружения :bowing_man:
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+После клонирования репозитория в корневой директории проекта небходимо создать `.env` файл на основне `.env.example`
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+## Сборка проекта
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+### С помощью Docker 
+
+Необходимо перейти в корневую директорию проекта и прописать в терминале:
+```
+docker-compose up --build
+```
+
+После того, как проект запустится, необходимо перейти по ссылке [http://localhost:8000/](http://localhost:8000/)
+
+### С помощью npm
+
+Необходимо перейти в корневую директорию проекта и прописать в терминале:
+```
+npm install
+npm run dev
+```
+После того, как проект запустится, необходимо перейти по ссылке [http://localhost:8000/](http://localhost:8000/)
+
+![frame](./readme-assets/app.png?raw=true 'Запущенное приложение')
