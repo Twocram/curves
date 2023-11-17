@@ -109,10 +109,6 @@ section {
   display: block;
 }
 
-html {
-  height: 100%;
-}
-
 body {
   line-height: 1;
 }
@@ -175,7 +171,8 @@ table {
 /*END FONTS*/
 
 html,
-body {
+body,
+#app {
   height: 100%;
 }
 

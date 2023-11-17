@@ -5,10 +5,11 @@ import { onMounted, ref } from "vue";
 // Components
 import VLayout from "@components/VLayout.vue";
 import VLinkButton from "@components/ui/VLinkButton.vue";
-import VCardInfo from "@components/card/Info.vue";
-import VCardAbout from "@components/card/About.vue";
+import VCardInfo from "@components/card/VInfo.vue";
+import VCardAbout from "@components/card/VAbout.vue";
 import VVideo from "@components/VVideo.vue";
-import VShortText from "@components/VShortText.vue";
+import VDecode from "@components/VDecode.vue";
+import VLoader from "@components/VLoader.vue";
 
 // Types
 import { TCardInfoProps, TShortTextProps, TLongTextProps } from "@/types";
@@ -25,6 +26,8 @@ const shortApiUrl: string = import.meta.env.VITE_SHOPOT_API_URL_SHORT;
 
 const cardInfoData = ref<TCardInfoProps | null>(null);
 
+const isLoading = ref<boolean>(false);
+
 const cardAboutData = ref<string | null>(null);
 
 const videoData = ref<string | null>(null);
@@ -34,6 +37,7 @@ const shortTextData = ref<TShortTextProps[] | []>([]);
 const longTextData = ref<TLongTextProps[] | []>([]);
 
 const getData = async () => {
+  isLoading.value = true;
   try {
     const response = await fetch(apiUrl, {
       method: "GET",
@@ -56,7 +60,10 @@ const getData = async () => {
     shortTextData.value = data?.summaryScript;
 
     longTextData.value = data?.script;
+
+    isLoading.value = false;
   } catch (e) {
+    isLoading.value = false;
     console.log(e);
   }
 };
@@ -68,7 +75,8 @@ onMounted(() => {
 
 <template>
   <v-layout>
-    <section class="container">
+    <v-loader v-if="isLoading" />
+    <section class="container" v-else>
       <v-link-button :label="'На главную'" :url="'/'" />
 
       <div class="content">
@@ -84,13 +92,13 @@ onMounted(() => {
 
           <v-card-about v-if="cardAboutData" :desc="cardAboutData" />
 
-          <v-short-text
+          <v-decode
             v-if="shortTextData.length"
             :type="'short'"
             :cards="shortTextData"
           />
 
-          <v-short-text
+          <v-decode
             v-if="longTextData.length"
             :type="'long'"
             :cards="longTextData"
