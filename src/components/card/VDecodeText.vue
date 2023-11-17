@@ -13,7 +13,9 @@ const handleTimeUpdate = () => {
     const currentTime = video.value!.currentTime;
     const endTime = props.start + props.duration;
 
-    isActive.value = currentTime >= props.start && currentTime <= endTime;
+    isActive.value =
+      currentTime >= Math.floor(props.start) &&
+      currentTime <= Math.floor(endTime);
   }
 };
 
