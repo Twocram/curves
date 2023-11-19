@@ -174,11 +174,11 @@ html,
 body,
 #app {
   height: 100%;
+  cursor: url("./assets/mouse-pointer.png"), auto;
 }
 
 body {
   background: #f9f9f6;
-  cursor: url("./assets/mouse-pointer.png"), auto;
   font-family: "Onest", sans-serif;
 }
 
