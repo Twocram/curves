@@ -46,6 +46,7 @@ import smile from "@assets/smile.svg";
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 38px;
 }
 
 .footer-logo {
