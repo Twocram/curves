@@ -15,10 +15,6 @@ export default defineConfig({
         replacement: "/src",
       },
       {
-        find: "@components",
-        replacement: "/src/components",
-      },
-      {
         find: "@assets",
         replacement: "/src/assets",
       },
@@ -29,6 +25,10 @@ export default defineConfig({
       {
         find: "@widgets",
         replacement: "/src/widgets",
+      },
+      {
+        find: "@utils",
+        replacement: "/src/utils",
       },
     ],
   },

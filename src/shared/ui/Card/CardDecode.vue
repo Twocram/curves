@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { TDecodeTextCardProps } from "@/types";
-import { durationConverter } from "@/utils/converter";
+import { durationConverter } from "@utils/converter";
 import { onMounted, onUnmounted, ref } from "vue";
 
 const props = defineProps<TDecodeTextCardProps>();

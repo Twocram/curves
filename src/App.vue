@@ -18,7 +18,7 @@ import {
   dateConverter,
   sizeConverter,
   durationConverter,
-} from "@/utils/converter";
+} from "@utils/converter";
 
 const apiUrl: string = import.meta.env.VITE_SHOPOT_API_URL;
 const shortApiUrl: string = import.meta.env.VITE_SHOPOT_API_URL_SHORT;
