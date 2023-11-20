@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import downloadIcon from "@assets/download.svg";
 import copyIcon from "@assets/copy.svg";
-import VButton from "@components/ui/VButton.vue";
+import EventButton from "@shared/ui/EventButton/EventButton.vue";
+import CardDecode from "@shared/ui/Card/CardDecode.vue";
 import { TDecodeProps } from "@/types";
-import VDecodeTextCard from "@components/card/VDecodeText.vue";
 import { ref } from "vue";
 
 const isHidden = ref<boolean>(true);
@@ -26,13 +26,13 @@ const props = defineProps<TDecodeProps>();
         <template v-else> Полная расшифровка текста </template>
       </div>
       <div class="card-header__icons">
-        <v-button :size="'size-l'" :is-disabled="false" :type="'icon'">
+        <EventButton :size="'size-l'" :is-disabled="false" :type="'icon'">
           <img :src="downloadIcon" alt="download-icon" />
-        </v-button>
+        </EventButton>
 
-        <v-button :size="'size-l'" :is-disabled="false" :type="'icon'">
+        <EventButton :size="'size-l'" :is-disabled="false" :type="'icon'">
           <img :src="copyIcon" alt="copy-icon" />
-        </v-button>
+        </EventButton>
       </div>
     </div>
 
@@ -40,7 +40,7 @@ const props = defineProps<TDecodeProps>();
       class="card-content"
       :class="[{ hidden: props.cards.length > 2 && isHidden }]"
     >
-      <v-decode-text-card
+      <CardDecode
         v-for="(item, index) in props.cards"
         :type="props.type"
         :duration="item.duration"
@@ -57,7 +57,7 @@ const props = defineProps<TDecodeProps>();
       />
     </div>
 
-    <v-button
+    <EventButton
       @click="toggleHidden"
       class="hide-btn"
       :size="'size-m'"
@@ -67,7 +67,7 @@ const props = defineProps<TDecodeProps>();
       <template v-if="isHidden"> Развернуть </template>
 
       <template v-else> Свернуть </template>
-    </v-button>
+    </EventButton>
   </div>
 </template>
 

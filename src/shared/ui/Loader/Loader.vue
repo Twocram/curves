@@ -23,7 +23,7 @@ onMounted(() => {
     <div class="loader-wrapper">
       <img alt="logo" :src="logo" class="loader-logo" />
       <span class="loader-text"
-        ><img :src="smile" class="loader-smile" alt="smile" /> тсс, мы слушаем{{
+      ><img :src="smile" class="loader-smile" alt="smile" /> тсс, мы слушаем{{
           dots
         }}</span
       >

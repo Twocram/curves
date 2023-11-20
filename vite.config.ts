@@ -22,6 +22,14 @@ export default defineConfig({
         find: "@assets",
         replacement: "/src/assets",
       },
+      {
+        find: "@shared",
+        replacement: "/src/shared",
+      },
+      {
+        find: "@widgets",
+        replacement: "/src/widgets",
+      },
     ],
   },
 });

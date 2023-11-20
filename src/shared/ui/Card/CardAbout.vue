@@ -1,39 +1,30 @@
 <script setup lang="ts">
-import { TCardAboutProps } from "@/types";
-import VButton from "@components/ui/VButton.vue";
+import Layout from "./Layout.vue";
 import copyIcon from "@assets/copy.svg";
+import EventButton from "@shared/ui/EventButton/EventButton.vue";
+import { TCardAboutProps } from "@/types";
 
 const props = defineProps<TCardAboutProps>();
 </script>
 
 <template>
-  <div class="about-card">
+  <Layout>
     <div class="about-card__header">
       <div class="about-card__header-caption">О чём файл?</div>
       <div class="about-card__header-copy">
-        <v-button :size="'size-l'" :is-disabled="false" :type="'icon'">
+        <EventButton :size="'size-l'" :is-disabled="false" :type="'icon'">
           <img :src="copyIcon" alt="copy-icon" />
-        </v-button>
+        </EventButton>
       </div>
     </div>
 
     <div class="about-card__desc">
       {{ props.desc }}
     </div>
-  </div>
+  </Layout>
 </template>
 
 <style scoped>
-.about-card {
-  max-width: 785px;
-  width: 100%;
-  background: #ffffff;
-  border: 1px solid #c7c7c7;
-  border-radius: 12px;
-  padding: 16px 24px 25px 24px;
-  margin-bottom: 16px;
-}
-
 .about-card__header {
   display: flex;
   justify-content: space-between;
