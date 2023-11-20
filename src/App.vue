@@ -3,14 +3,13 @@
 import { onMounted, ref } from "vue";
 
 // Components
-import VLayout from "@components/VLayout.vue";
-import VLinkButton from "@components/ui/VLinkButton.vue";
-import VCardInfo from "@components/card/VInfo.vue";
-import VCardAbout from "@components/card/VAbout.vue";
-import VVideo from "@components/VVideo.vue";
-import VDecode from "@components/VDecode.vue";
-import VLoader from "@components/VLoader.vue";
-
+import Layout from "@widgets/Layout/Layout.vue";
+import LinkButton from "@shared/ui/LinkButton/LinkButton.vue";
+import CardInfo from "@shared/ui/Card/CardInfo.vue";
+import CardAbout from "@shared/ui/Card/CardAbout.vue";
+import VideoOutput from "@widgets/VideoOutput/VideoOutput.vue";
+import Decode from "@widgets/Decode/Decode.vue";
+import Loader from "@shared/ui/Loader/Loader.vue";
 // Types
 import { TCardInfoProps, TTextProps } from "@/types";
 
@@ -74,14 +73,14 @@ onMounted(() => {
 </script>
 
 <template>
-  <v-layout>
-    <v-loader v-if="isLoading" />
+  <Layout>
+    <Loader v-if="isLoading" />
     <section class="container" v-else>
-      <v-link-button :label="'На главную'" :url="'/'" />
+      <LinkButton :label="'На главную'" :url="'/'" />
 
       <div class="content">
         <div class="content-left">
-          <v-card-info
+          <CardInfo
             v-if="cardInfoData"
             :type="cardInfoData?.type"
             :size="cardInfoData?.size"
@@ -90,15 +89,15 @@ onMounted(() => {
             :duration="cardInfoData?.duration"
           />
 
-          <v-card-about v-if="cardAboutData" :desc="cardAboutData" />
+          <CardAbout v-if="cardAboutData" :desc="cardAboutData" />
 
-          <v-decode
+          <Decode
             v-if="shortTextData.length"
             :type="'short'"
             :cards="shortTextData"
           />
 
-          <v-decode
+          <Decode
             v-if="longTextData.length"
             :type="'long'"
             :cards="longTextData"
@@ -106,11 +105,11 @@ onMounted(() => {
         </div>
 
         <div class="content-right">
-          <v-video v-if="videoData" :src="`${shortApiUrl}${videoData}`" />
+          <VideoOutput v-if="videoData" :src="`${shortApiUrl}${videoData}`" />
         </div>
       </div>
     </section>
-  </v-layout>
+  </Layout>
 </template>
 
 <style>

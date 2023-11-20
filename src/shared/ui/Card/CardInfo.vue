@@ -1,33 +1,23 @@
 <script setup lang="ts">
+import CardLayout from "./Layout.vue";
 import { TCardInfoProps } from "@/types";
 
 const props = defineProps<TCardInfoProps>();
 </script>
 
 <template>
-  <div class="info-card">
+  <CardLayout>
     <div class="info-card__caption">{{ props.caption }}</div>
-
     <div class="info-card__list">
       <div class="info-card__item">{{ props.date }}</div>
       <div class="info-card__item">{{ props.size }} МБ</div>
       <div class="info-card__item">{{ props.duration }}</div>
       <div class="info-card__item">{{ props.type }}</div>
     </div>
-  </div>
+  </CardLayout>
 </template>
 
 <style scoped>
-.info-card {
-  max-width: 785px;
-  width: 100%;
-  background: #ffffff;
-  border: 1px solid #c7c7c7;
-  border-radius: 12px;
-  padding: 16px 24px 25px 24px;
-  margin-bottom: 16px;
-}
-
 .info-card__caption {
   font-weight: 500;
   font-size: 20px;
