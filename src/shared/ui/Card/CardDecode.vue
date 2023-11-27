@@ -6,9 +6,9 @@ import { onMounted, onUnmounted, ref } from "vue";
 const props = defineProps<TDecodeTextCardProps>();
 const video = ref<HTMLVideoElement | null>(null);
 
-const isActive = ref(false);
+const isActive = ref<boolean>(false);
 
-const handleTimeUpdate = () => {
+const handleTimeUpdate = (): void => {
   if (video.value) {
     const currentTime = video.value!.currentTime;
     const endTime = props.start + props.duration;
@@ -19,7 +19,7 @@ const handleTimeUpdate = () => {
   }
 };
 
-const setVideoTime = () => {
+const setVideoTime = (): void => {
   if (video.value && props.type === "long") {
     video.value.currentTime = props.start;
   }
