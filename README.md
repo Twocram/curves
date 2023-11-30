@@ -52,11 +52,7 @@ npm run dev
 
 ![frame](./readme-assets/app.png?raw=true 'Запущенное приложение')
 
-### Видео с кратким объяснением :video_camera:
-[![Watch the video](./readme-assets/preview.png?raw=true)](https://www.loom.com/share/2145c145d7dd49d587eafb9b22ae3a34)
 
-### Видео с тем, что не реализовал :video_camera:
-[![Watch the video](./readme-assets/preview2.png?raw=true)](https://www.loom.com/share/5b8a9852e68c4afcb0e2b48f4601e2df)
 
 ### Что не реализовал (в текстовом формате) :fountain_pen:
 1. Нет адаптивности (это было опционально)
